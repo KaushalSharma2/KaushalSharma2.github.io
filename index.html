@@ -134,7 +134,8 @@
     <h2>📩 Contact Us</h2>
     <p>Have questions, feedback, or partnership inquiries? We'd love to hear from you.</p>
 
-    <form class="contact-form" action="#" method="POST">
+    <!-- ✅ Form Updated -->
+    <form class="contact-form" onsubmit="return showThankYou(event)">
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required>
 
@@ -155,6 +156,23 @@
     FilmHive is free to download and designed for iPhone & iPad. All movie data comes from licensed sources.  
     © 2026 FilmHive — Your Movie Companion
   </footer>
+
+  <!-- ✅ JavaScript Added -->
+  <script>
+    function showThankYou(event) {
+      event.preventDefault(); // stop default form submit
+
+      const form = document.querySelector(".contact-form");
+      form.innerHTML = `
+        <div style="text-align:center; padding:20px;">
+          <h3>✅ Thank You!</h3>
+          <p>Thank you for contacting us. We will connect with you shortly.</p>
+        </div>
+      `;
+
+      return false;
+    }
+  </script>
 
 </body>
 </html>
